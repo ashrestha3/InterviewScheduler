@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="resources/css/fontAwesome/css/font-awesome.css" />
+<script src="resources/css/jquery/dist/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="resources/css/bootstrap/bootstrap.min.css">
+<script src="resources/js/bootstrap/bootstrap.min.js"></script>
+<script src="https://code.angularjs.org/1.2.26/angular.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
+<script src="resources/css/moment/min/moment.min.js"></script>
+<script src="https://code.angularjs.org/1.2.26/angular.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+<script src="resources/css/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="resources/css/fullcalendar/dist/gcal.js"></script>
+<script src="resources/css/fullcalendar/calendar.js"></script>
+<script src="https://code.angularjs.org/1.2.26/angular-touch.js"></script>
+<script src="https://code.angularjs.org/1.2.26/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="https://code.angularjs.org/1.2.26/angular-animate.js"></script>
+<link rel="styleSheet" href="resources/css/node_modules/angular-ui-grid/ui-grid.min.css" />
+<script src="resources/css/node_modules/angular-ui-grid/ui-grid.min.js"></script>
+<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+<script src="resources/js/directives/modalDirective.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/services/consultantService.js"></script>
+<script src="resources/js/services/applicationUrlService.js"></script>
+<script src="resources/js/controllers/consultantController.js"></script>
+<script src="resources/js/services/userService.js"></script>
+<script src="resources/js/controllers/userController.js"></script>
+<script src="resources/js/services/vendorService.js"></script>
+<script src="resources/js/controllers/vendorController.js"></script>
+<script src="resources/js/services/uploadService.js"></script>
+<script src="resources/js/controllers/uploadController.js"></script>
+<script src="resources/js/controllers/calendarController.js"></script>
+<script src="resources/js/directives/calendarDirective.js"></script>
+<script src="resources/js/controllers/interviewConsultantListController.js"></script>
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="interviewSchedulerApp">
+
+	<!-- NAVIGATION -->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="#">CREATIONEXTREME SOLUTIONS</a>
+		</div>
+		<ul class="nav navbar-nav" style="font-size: 18px;">
+			<li><a ui-sref="home" >Home</a></li>
+			<li><a ui-sref="about">About</a></li>
+			<li><a ui-sref="contact">Contact Us</a></li>
+			<li><a ui-sref="vendors">Vendors</a></li>
+			<li><a ui-sref="consultants">Consultants</a></li>
+			<li><a ui-sref="login">Login/Sign up</a></li>
+			<li><a ui-sref="interviews">Interviews</a></li>
+		</ul>
+	</nav>
+
+	<!-- MAIN CONTENT -->
+	<div class="container">
+
+		<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+		<div ui-view></div>
+
+	</div>
+
+</body>
+</html>

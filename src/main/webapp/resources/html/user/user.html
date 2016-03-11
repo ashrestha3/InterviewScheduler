@@ -1,0 +1,44 @@
+
+
+<div class="form-group">
+	<label>UserName</label> <input type="text" class="form-control" />
+</div>
+<div class="form-group">
+	<label>Password</label> <input type="text" class="form-control" />
+</div>
+<div>
+	<button class="btn btn-success" data-ng-click="">
+		<span class="glyphicon glyphicon-user"></span>Log In
+	</button>
+	<button class="btn btn-success" data-ng-click="toggleUserModal()">
+		<span class="glyphicon glyphicon-user"></span>Register
+	</button>
+</div>
+<modal title="User Registeration " visible="showModal">
+<form role="form" ng-submit="sendPost()">
+	<div class="form-group">
+		<label>User Name:</label> <input type="text" class="form-control"
+			ng-model="registerUser.name" />
+	</div>
+	<div class="form-group">
+		<label>Password:</label> <input type="password" class="form-control"
+			ng-model="registerUser.password" />
+	</div>
+	<div class="form-group">
+		<label>Re enter password:</label> <input type="password"
+			class="form-control" ng-model="registerUser.password1" />
+	</div>
+	<div class="form-group">
+
+		<label>Role:</label> <select ng-model="registerUser.role">
+			<option value="">---Select an option---</option>
+			<option ng-repeat="(name, value) in userRoleOptions">{{value}}</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-default"
+		ng-click="signUpNewUser()">Sign Up</button>
+	<div>
+		<font color="RED"> {{registerUser.alertUser.invalidPwd}} </font>
+	</div>
+</form>
+</modal>

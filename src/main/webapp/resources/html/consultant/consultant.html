@@ -1,0 +1,144 @@
+<head>
+<link rel="stylesheet" type="text/css"
+	href="resources/css/modalTemplates.css" />
+</head>
+<div>
+	<button class="btn btn-success"
+		data-ng-click="clientsandRepsList()">
+		<span class="glyphicon glyphicon-user"></span>Add Consultant
+	</button>
+</div>
+<div ui-grid="consultantsGrid" ui-grid-selection></div>
+<div>
+	<button class="btn btn-success"
+		data-ng-disabled="consultantDeleteDisable" ng-click="">
+		<span class="glyphicon glyphicon-user"></span>Delete Consultant
+	</button>
+	<button class="btn btn-success"
+		data-ng-disabled="consultantEditDisable" data-ng-click="toggleModal()">
+		<span class="glyphicon glyphicon-user"></span>Edit Consultant
+	</button>
+	<modal title="Edit Consultant" visible="showModal">
+	<form role="form" ng-submit="sendPost()">
+		<div class="form-group">
+			<label>Name</label> <input type="text" class="form-control"
+				ng-model="selectedRows[0].name" />
+		</div>
+		<div class="form-group">
+			<label>Years Experience</label> <input type="text"
+				class="form-control" ng-model="selectedRows[0].yrsExp" />
+		</div>
+		<div class="form-group">
+			<label>Institution</label> <input type="text" class="form-control"
+				ng-model="selectedRows[0].educationDetail.institutionName" />
+		</div>
+		<div class="form-group">
+			<label>Graduated Year</label> <input type="text" class="form-control"
+				ng-model="selectedRows[0].educationDetail.graduateYear" />
+		</div>
+		<div class="form-group">
+			<label>Current Client</label> <input type="text" class="form-control"
+				ng-model="selectedRows[0].yrsExp" />
+		</div>
+		<button type="submit" class="btn btn-default" ng-click="closeModal()">Submit</button>
+	</form>
+	</modal>
+	<modal title="Sales Representative" visible="showSalesRepModal">
+	<form role="form">
+		<div class="form-group">
+			<label>Name</label> <input type="text" class="form-control"
+				ng-disabled="true" ng-model="salesRepDtoModel.repName" />
+		</div>
+		<div class="form-group">
+			<label>Phone</label> <input type="text" class="form-control"
+				ng-disabled="true" ng-model="salesRepDtoModel.phone" />
+		</div>
+		<div class="form-group">
+			<label>Email</label> <input type="text" class="form-control"
+				ng-disabled="true" ng-model="salesRepDtoModel.email" />
+		</div>
+	</form>
+	</modal>
+	<modal title="New Consultant" visible="showNewConsultantModal">
+	<form role="form" ng-submit="" >
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-2 control-label pull-left">NAME:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" ng-model="consultant.name" /> <label
+					class="col-sm-2 control-label pull-left">D.O.B:</label> <input
+					class="col-sm-4 " type="date" class="form-control"
+					ng-disabled="false" ng-model="consultant.dob" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-2 control-label pull-left ">SSN:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" /> <label
+					class="col-sm-2 control-label pull-left">PHONE.NO:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-2 control-label pull-left ">EMAIL:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" /> <label
+					class="col-sm-2 control-label pull-left">COLLEGE:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-2 control-label pull-left ">GRAD YR:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" /> <label
+					class="col-sm-2 control-label pull-left">LOCATION:</label> <input
+					class="col-sm-4 " type="text" class="form-control"
+					ng-disabled="false" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-2 control-label pull-left ">CURRENT
+					CLIENT:</label> <select class="col-sm-4 " ng-model="clientsData.name" /> <label
+					class="col-sm-2 control-label pull-left">SALES REP:</label> <select
+					class="col-sm-4 " ng-model="salesRepsData.name" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div ng-controller="uploadCtrl">
+					<label class="col-sm-2 control-label pull-left"> RESUME: </label> <input
+						type="file" file-model="myFile" />
+				</div>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-default" ng-click="closeNewConsultantModal()">Submit</button>
+	</form>
+	</modal>
+	<modal title="Education Details" visible="showEducationModal">
+	<form role="form">
+		<div class="form-group">
+			<label>Institution Name</label> <input type="text"
+				class="form-control" ng-disabled="true"
+				ng-model="educationModal.institutionName" />
+		</div>
+		<div class="form-group">
+			<label>Location</label> <input type="text" class="form-control"
+				ng-disabled="true" ng-model="educationModal.location" />
+		</div>
+		<div class="form-group">
+			<label>Graduated Year</label> <input type="text" class="form-control"
+				ng-disabled="true" ng-model="educationModal.graduateYear" />
+		</div>
+	</form>
+	</modal>
+	<div class="modal-dialog" id="resume">
+		<modal title="Resume" visible="showResumeModal"> <embed
+			src="{{content}}" width="800" height="500"></embed> </modal>
+	</div>
+</div>

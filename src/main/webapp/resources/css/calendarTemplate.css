@@ -1,0 +1,14 @@
+div.gridConsStyle {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 700px;
+	height: 275px
+}
+
+div.fixed {
+	size: fixed;
+	position: fixed;
+	top: 1;
+	right: 0;
+}
